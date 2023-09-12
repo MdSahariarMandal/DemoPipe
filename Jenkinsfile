@@ -10,11 +10,8 @@ pipeline {
 
         stage('Run Script') {
             steps {
-               script {
-                     env.PATH = "${tool name: 'Python', type: 'Tool'}:$env.PATH"
-                     sh 'python C:/ProgramData/Jenkins/.jenkins/workspace/Hello.py'
+                     sh 'python Hello.py'
               }
           }
       }
    } 
-}
