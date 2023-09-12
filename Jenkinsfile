@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('Run Python Script') {
+        stage('Run Script') {
             steps {
                 sh 'echo "Hello World"'
             }
