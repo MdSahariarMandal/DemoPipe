@@ -13,7 +13,8 @@ pipeline {
                script {
                      env.PATH = "${tool name: 'Python', type: 'Tool'}:$env.PATH"
                      sh 'python C:/ProgramData/Jenkins/.jenkins/workspace/Hello.py'
-            }
-        }
-    }
+              }
+          }
+      }
+   } 
 }
