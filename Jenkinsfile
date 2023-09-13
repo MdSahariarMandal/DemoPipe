@@ -1,17 +1,22 @@
 pipeline {
-    agent any
+agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
+stages {
+    stage('Hello') {
+        steps {
+          checkout scmGit(branches: [[name: '*/python']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/MdSahariarMandal/DemoPipe.git']])
         }
-
-        stage('Run Script') {
-            steps {
-                     sh 'python Hello.py'
-              }
-          }
-      }
-   } 
+    }
+    stage ("Build"){
+        steps{
+           git branch: 'python', url: 'https://github.com/MdSahariarMandal/DemoPipe.git'
+           bat 'python3 Hello.py'
+        }
+    }
+    stage("Test"){
+        steps{
+            echo "The job is tested"
+        }
+    }
+}
+}
