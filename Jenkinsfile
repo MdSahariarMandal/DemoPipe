@@ -10,7 +10,7 @@ stages {
     stage ("Build"){
         steps{
            git branch: 'python', url: 'https://github.com/MdSahariarMandal/DemoPipe.git'
-           bat 'python3 Hello.py'
+           bat 'python Hello.py'
         }
     }
     stage("Test"){
