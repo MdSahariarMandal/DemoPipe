@@ -14,9 +14,9 @@ stages {
         }
     }
     stage("Build") {
-    steps {
-        git branch: 'python', url: 'https://github.com/MdSahariarMandal/DemoPipe.git'
-        bat 'python C:\Users\sahariar.mandal\HelloWorldPython\DemoPipe\Hello.py'  // Adjust the path as needed
+        steps {
+          git branch: 'python', url: 'https://github.com/MdSahariarMandal/DemoPipe.git'
+          bat 'python C:\Users\sahariar.mandal\HelloWorldPython\DemoPipe\Hello.py'  // Adjust the path as needed
     }
 }
 
