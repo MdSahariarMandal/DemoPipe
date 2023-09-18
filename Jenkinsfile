@@ -1,22 +1,23 @@
 pipeline {
-agent any
+    agent any
+    tools{
+        maven 'MAVEN3'
+    }
 
-stages {
-     stage('Hello') {
-        steps {
-          checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/MdSahariarMandal/DemoPipe.git']])
+    stages {
+        stage('Build') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/MdSahariarMandal/DemoPipe.git']])
+            }
+        }
+        stage("Build-Docker"){
+            steps{
+                 script{
+                  bat 'docker build -t Hello.py .'
+                  bat 'docker run Hello.py'
+                }
+            }
+               
         }
     }
-     stage("Build") {
-        steps {
-          git branch: 'main', url: 'https://github.com/MdSahariarMandal/DemoPipe.git'
-          bat 'python Hello.py'  // Adjust the path as needed
-    }
-}
-     stage("Test"){
-        steps{
-            echo "The job is tested"
-        }
-    }
-}
 }
