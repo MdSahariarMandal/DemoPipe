@@ -7,7 +7,7 @@ stages {
     }
      stage("Build") {
         steps {
-          bat 'python app.py'  // Adjust the path as needed
+          bat 'python app.py'
     }
 }
      stage("Test"){
